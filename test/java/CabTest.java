@@ -11,27 +11,27 @@ import com.example.User;
 public class CabTest {
     
     @Test
-    public void validateTestFare()
+    public void validateTestFare() throws Exception
     {
-        CabFareCalculator cabFareCalculator = new CabFareCalculator();
+        CabFareCalculator cabFareCalculator = new CabFareCalculator("normal");
         double fare = cabFareCalculator.calculateFare(15,5);
 
         assertEquals(65.0, fare);
     }
 
     @Test
-    public void validateMinimumFare()
+    public void validateMinimumFare() throws Exception
     {
-        CabFareCalculator cabFareCalculator = new CabFareCalculator();
+        CabFareCalculator cabFareCalculator = new CabFareCalculator("normal");
         double fare = cabFareCalculator.calculateFare(2,0.2);
 
         assertEquals(5.0, fare);
     }
 
     @Test
-    public void validateTotalFare()
+    public void validateTotalFare() throws Exception
     {
-        CabFareCalculator cabFareCalculator = new CabFareCalculator();
+        CabFareCalculator cabFareCalculator = new CabFareCalculator("normal");
 
         Ride[] rides = {
             new Ride(2,2),
@@ -52,9 +52,9 @@ public class CabTest {
     }
 
     @Test
-    public void validateInvoiceService()
+    public void validateInvoiceService() throws Exception
     {
-        CabFareCalculator cabFareCalculator = new CabFareCalculator();
+        CabFareCalculator cabFareCalculator = new CabFareCalculator("normal");
         Ride[] rides = {
             new Ride(2,2),
             new Ride(4, 6),
