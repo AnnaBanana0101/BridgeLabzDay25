@@ -36,7 +36,17 @@ public class CabTest {
             new Ride(2, 0.1)
         };
 
+        int total_rides = rides.length;
+
+        assertEquals(3, total_rides);
+
         double total_fare = cabFareCalculator.calculateFare(2, 2) + cabFareCalculator.calculateFare(4, 6) + cabFareCalculator.calculateFare(2, 0.1);
         assertEquals(91.0, total_fare);
+
+        double average_fare = total_fare/total_rides;
+        assertEquals(30.333333333333332, average_fare);
+
+
+
     }
 }

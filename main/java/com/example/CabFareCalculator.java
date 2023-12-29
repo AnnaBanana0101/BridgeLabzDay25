@@ -14,4 +14,5 @@ public class CabFareCalculator {
 
         return Math.max(total_fare , min_fare);
     }
+
 }
