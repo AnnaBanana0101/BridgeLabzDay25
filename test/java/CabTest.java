@@ -14,4 +14,13 @@ public class CabTest {
 
         assertEquals(65.0, fare);
     }
+
+    @Test
+    public void validateMinimumFare()
+    {
+        CabFareCalculator cabFareCalculator = new CabFareCalculator();
+        double fare = cabFareCalculator.calculateFare(2,0.2);
+
+        assertEquals(5.0, fare);
+    }
 }
