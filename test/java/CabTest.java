@@ -1,9 +1,12 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.ArrayList;
+
 import org.junit.jupiter.api.Test;
 
 import com.example.CabFareCalculator;
 import com.example.Ride;
+import com.example.User;
 
 public class CabTest {
     
@@ -46,7 +49,29 @@ public class CabTest {
         double average_fare = total_fare/total_rides;
         assertEquals(30.333333333333332, average_fare);
 
+    }
 
+    @Test
+    public void validateInvoiceService()
+    {
+        CabFareCalculator cabFareCalculator = new CabFareCalculator();
+        Ride[] rides = {
+            new Ride(2,2),
+            new Ride(4, 6),
+            new Ride(2, 0.1)
+        };
+
+        String uid = "abc";
+        ArrayList<Ride> list_of_rides = new ArrayList<>();
+        list_of_rides = cabFareCalculator.addRides(uid, rides);
+        double invoice =0;
+
+        for(int i=0; i<list_of_rides.size(); i++)
+        {
+            invoice += cabFareCalculator.calculateFare(list_of_rides.get(i).time, list_of_rides.get(i).distance);
+        }
+
+        assertEquals(91.0, invoice);
 
     }
 }
