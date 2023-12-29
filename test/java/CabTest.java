@@ -3,6 +3,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
 import com.example.CabFareCalculator;
+import com.example.Ride;
 
 public class CabTest {
     
@@ -22,5 +23,20 @@ public class CabTest {
         double fare = cabFareCalculator.calculateFare(2,0.2);
 
         assertEquals(5.0, fare);
+    }
+
+    @Test
+    public void validateTotalFare()
+    {
+        CabFareCalculator cabFareCalculator = new CabFareCalculator();
+
+        Ride[] rides = {
+            new Ride(2,2),
+            new Ride(4, 6),
+            new Ride(2, 0.1)
+        };
+
+        double total_fare = cabFareCalculator.calculateFare(2, 2) + cabFareCalculator.calculateFare(4, 6) + cabFareCalculator.calculateFare(2, 0.1);
+        assertEquals(91.0, total_fare);
     }
 }
